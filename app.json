@@ -1,0 +1,17 @@
+{
+  "name": "Billed",
+  "displayName": "Billed",
+  "expo": {
+    "name": "Billed",
+    "slug": "Billed",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
