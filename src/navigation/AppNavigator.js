@@ -55,8 +55,8 @@ class AppNavigator extends React.Component {
           source={require('../assets/billed.png')}
           /> }}  
       />
+        <Drawer.Screen name="Search Friends" component={AddFriends} />
         <Drawer.Screen initialRouteName="Account" name="Account" component={Account} />
-        <Drawer.Screen name="Add Friends" component={AddFriends} />
         
       </Drawer.Navigator> 
     </NavigationContainer>
