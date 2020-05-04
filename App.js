@@ -9,7 +9,7 @@ class App extends React.Component {
 
     this.props.allBills()
     this.props.allUsers()
-    // console.log("Iam in APPP", this.props.bills)
+    // console.log("Iam in APPP",  this.props.bills)
 }
 
 	render() {
@@ -22,22 +22,22 @@ class App extends React.Component {
 }
 
 
-// function mapStateToProps(state){
-//   // console.log("MSP",state)
-//   return {
+function mapStateToProps(state){
+  // console.log("MSP",state)
+  return {
     
-//      bills: state.bills,
-//      users: state.users
-//   }   
-// }
+     bills: state.bills,
+     users: state.users
+  }   
+}
 
 const mdp = (dispatch) => {
   return {
-      allBills: () => fetchBills(),
+      allBills: () => dispatch(fetchBills()),
       allUsers: () => dispatch(fetchUsers()),
       // currentUser: () => dispatch(currentUser())
   }
 }
 
-export default connect(null,mdp)(App);
+export default connect(mapStateToProps,mdp)(App);
  

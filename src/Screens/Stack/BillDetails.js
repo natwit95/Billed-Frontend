@@ -1,48 +1,120 @@
-  
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, Image, StyleSheet, TextInput } from "react-native";
 // import { styles } from '../../styles/styles.js'
-import CardSilder from 'react-native-cards-slider';
+import CardSilder from "react-native-cards-slider";
+import { Button } from "react-native-paper";
+import Swiper from "react-native-web-swiper";
+import Modal from "react-native-modal";
+import { TextInputMask } from "react-native-masked-text";
 
+class BillDetails extends React.Component {
+	// state = {
+    // showModal: false,
+    // amount: ""
+	// };
 
+	showModal = () => {
+		this.setState((prevState) => ({
+			showModal: !prevState.showModal,
+		}));
+  };
+  
+//   handleAmount = (input) => {
+    
+//     this.setState({
+//       amount: input
+//     })
+//   }
 
-class BillDetails extends React.Component{
-  render(){
-    return(
-      
-      <CardSilder autoplay interval={2000}>
-        <View style={styles.container}>
-          <Text>HI</Text>
-        </View>
-        <View style={styles.container}>
-          <Text>you</Text>
-        </View>
-        <View style={styles.container}>
-          <Text>lol</Text>
-        </View>
-        <View style={styles.container}>
-          <Text>me</Text>
-        </View>
-      </CardSilder>
-    )
+  handlePayment = () => {
+    //patch the cintributors amount to input they type in 
   }
+   
+	render() {
+    // console.log("getting items",this.props.route.params.item)
+    // console.log(parseFloat(this.state.amount.replace(/[^\d\.]/g,'')))
+		const bills = this.props.route.params.item;
+
+		const bill_contributors = this.props.route.params.item.bill_contributors.filter(
+			(contributor) => contributor.user_id !== bills.user_id
+		);
+		//bill_contributors above returns everyone except the user that created the bill
+		// console.log("filtering:::",bill_contributors)
+		return (
+			<View style={{ flex: 1 }} >
+				{/* <View >
+					<Modal backdropColor="white" backdropOpacity={.95} isVisible={this.state.showModal} style={styles.center}>
+            <Text>How much would you like to pay?</Text>
+						<TextInputMask
+					style={styles.inputStyle}
+					type={"money"}
+					options={{
+						unit: "$",
+						delimiter: ",",
+						separator: ".",
+          }} 
+          style={styles.inputStyle}
+          value={this.state.amount}
+          onChangeText={this.handleAmount}
+        ></TextInputMask>
+            <Button>Make Payment</Button>
+            <Button onPress={this.showModal}>Back</Button>
+					</Modal>
+				</View> */}
+				<Swiper>
+					{bill_contributors.map((contributor) => (
+						<View key={contributor.user_id} style={styles.container}>
+							<Text>{contributor.name}</Text>
+							<Text>Amount Owed: {contributor.contributed_amount}</Text>
+							<Button onPress={this.showModal}>
+								{contributor.paid ? "PAID" : "SETTLE BILL"}
+							</Button>
+						</View>
+
+            
+					))}
+				</Swiper>
+			</View>
+		);
+	}
 }
 
-const styles = StyleSheet.create({
-	container: {
-    flex: 1,
-    justifyContent: 'center',
-    borderRadius:10,
-    marginTop:180,
-    marginBottom:180,
-    fontSize:20,
-    borderRadius:10,
-    borderWidth: 1,
-    height: 170,  
-    alignItems:'center', 
-    backgroundColor: 'lightpink'  
-},
-});
 
 
 export default BillDetails;
+
+
+
+const styles = StyleSheet.create({
+	container: {
+		// flex: 1,
+		justifyContent: "center",
+		borderRadius: 10,
+		marginTop: 180,
+		marginBottom: 180,
+		fontSize: 20,
+		borderRadius: 10,
+		borderWidth: 1,
+		height: 170,
+		alignItems: "center",
+		backgroundColor: "lightpink",
+  },
+  inputStyle: {
+		height: 40,
+		width: 200,
+		borderColor: "gray",
+		borderWidth: 1,
+		borderRadius: 5,
+		backgroundColor: "white",
+		padding: 10,
+		// justifyContent: "center",
+    marginTop: 15,
+    alignContent: "center"
+		
+  },
+  center: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+});

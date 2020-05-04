@@ -12,6 +12,12 @@ import AddBill from '../Screens/Tabs/AddBill';
 import AllBills from '../Screens/Tabs/AllBills';
 import Account from '../Screens/drawer/Account';
 import AddFriends from '../Screens/drawer/AddFriends';
+import Login from '../Screens/Stack/Login';
+import Signup from '../Screens/Stack/Signup';
+import SettleBill from '../Screens/Stack/SettleBill';
+// import Form from '../Screens/Stack/Form';
+
+
 
 const Drawer = createDrawerNavigator()
 const Tab = createMaterialBottomTabNavigator();
@@ -22,11 +28,23 @@ const Stack = createStackNavigator()
 
 class AppNavigator extends React.Component {
 
+  createPayBillStack = () => 
+  <Stack.Navigator >
+    <Stack.Screen name="Pay Bills" component={AllBills}/>
+    <Stack.Screen name="Settle Bill" component={SettleBill}  />
+    
+  </Stack.Navigator>
+
 
   createHomeStack = () => 
   <Stack.Navigator >
+    {/* <Stack.Screen name="Login" component={Login}/>
+    <Stack.Screen name="Login" component={Signup}/> */}
+    
     <Stack.Screen name="Home" component={Home}/>
+   
     <Stack.Screen name="Bill Details" component={BillDetails}  />
+    
   </Stack.Navigator>
   
   createTabsNav = () =>   
@@ -36,7 +54,7 @@ class AppNavigator extends React.Component {
     <Tab.Screen name="Add Bill" options={{tabBarIcon: 'plus'}}>
       {props => <AddBill {...props}  />}
       </Tab.Screen>
-    <Tab.Screen name="Pay Bills" component={AllBills} options={{tabBarIcon: 'credit-card'}} />
+    <Tab.Screen name="Pay Bills" children={this.createPayBillStack} options={{tabBarIcon: 'credit-card'}} />
   </Tab.Navigator> 
   
 

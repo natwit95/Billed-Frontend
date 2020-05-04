@@ -50,7 +50,8 @@ export const reducer = (prevState = initialState, action) => {
         //     let currentUser = prevState.users.filter(user=> user.id === 1)
         //     // return console.log("in recucer",currentUser)
         //     return {...prevState, currUser: currentUser}
-            
+        case 'CREATE_BILL':
+            return {...prevState, bills: [...prevState.bills, action.payload.bill]}
         default:
             return {...prevState}
     }

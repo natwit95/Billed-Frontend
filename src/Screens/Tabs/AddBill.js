@@ -2,8 +2,9 @@ import React from "react";
 import {View,Text,TextInput,Button,StyleSheet,Header, TouchableOpacity, Picker} from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import { connect } from 'react-redux'
-import Autocomplete from 'react-native-autocomplete-input';
+// import Autocomplete from 'react-native-autocomplete-input';
 import AutoTags from  'react-native-tag-autocomplete';
+import { postBills } from "../../action";
 
 
 
@@ -49,9 +50,9 @@ class AddBill extends React.Component {
 		}
 		this.setState((prevState)=>({ splitWith: [...prevState.splitWith, suggestion]}));
 	}
-	addBills = (bill) => {
-		this.setState((prevState)=> ({bills: {...prevState.bills, bill}}))
-	  }
+	// addBills = (bill) => {
+	// 	this.setState((prevState)=> ({bills: {...prevState.bills, bill}}))
+	//   }
 
 	// handleSuggestions= () => {
 	// 	let currentFollowers = this.props.currentUser.followings
@@ -60,33 +61,30 @@ class AddBill extends React.Component {
 	// 	}else{
 	// 	return currentFollowers}
 	// }   //use this when you have follow friends feature
-	handlePost = (event) => {
-		console.log("this is working")
-		event.preventDefault();
+
+	clearState = () => {
+		this.setState({
+		description: "",
+		currency: "",
+		date: "",
+		splitWith: [this.props.currentUser]
+	})
+	}
+	handlePost = () => {
+		// console.log("this is working")
     
 		const data = {
-      bill: {description: this.state.description,
-      amount: this.state.currency,
+      description: this.state.description,
+      amount: this.state.currency.replace(/[^\d\.]/g,''),
       due_date: this.state.date,
 	  user_id: this.props.currentUser.id,
-	  bill_contributors: [...this.state.splitWith]}
+	  bill_contributors: [...this.state.splitWith]
 	  };
-	  
-	  console.log("data", data)
-	  		//this will go into action creator
-		fetch("http://localhost:3000/bills", {
-			method: "POST", // or 'PUT'
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				// this.addBills(data)
-			console.log(data)
-			})
-			// .then(null)
+
+
+	  this.props.postBills(data)//action creator
+	  this.clearState()
+	  this.props.navigation.navigate("Home")
       
 	
 		
@@ -95,10 +93,10 @@ class AddBill extends React.Component {
 	
 	render() {
 		// console.log("spitting bill with::",this.state.splitWith)
-		console.log("split with", this.state.splitWith)
-		console.log(this.state.currency)
-		console.log(this.state.date)
-		console.log(this.state.description)
+		// console.log("split with", this.state.splitWith)
+		// console.log(this.state.currenc)
+		// console.log(this.state.date)
+		// console.log(this.state.bills)
 
 		// let newFollowers = this.handleSuggestions() ///use this when you have a follow friends feature
 		// const followers = this.props.currentUser.followings.map(follower=> follower.name)
@@ -123,7 +121,8 @@ class AddBill extends React.Component {
 					value={this.state.description} 
 					onChangeText={(input)=>this.handleDescription(input)}
 				/>
-				<TextInput
+				<TextInputMask
+					placeholder="$0.00"
 					style={styles.inputStyle}
 					type={"money"}
 					options={{
@@ -159,7 +158,13 @@ function mapStateToProps(state){
 	} 
   }
 
-export default connect(mapStateToProps)(AddBill);
+  function mdp(dispatch){
+	  return{
+		postBills: (bill_obj) => dispatch(postBills(bill_obj))
+	  }
+  }
+
+export default connect(mapStateToProps,mdp)(AddBill);
 
 const styles = StyleSheet.create({
 	inputStyle: {

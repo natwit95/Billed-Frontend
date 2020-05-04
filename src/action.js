@@ -10,8 +10,9 @@ export const fetchBills = () => dispatch => {
       fetch("http://localhost:3000/bills")
             .then(resp=>resp.json())
             .then(bills => {
+                // console.log("in ACTION JS.........................", bills)
                 dispatch({type: "GET_BILLS", payload: {bills}})
-                // console.log("in ACTION JS", bills)
+                
             })
     
 }
@@ -25,4 +26,17 @@ export const fetchUsers = () => dispatch => {
         })
 }
 
+export const postBills = (bill_obj) => dispatch => {
+    fetch("http://localhost:3000/bills", {
+			method: "POST", // or 'PUT'
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({bill: bill_obj}),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+                dispatch({ type: 'CREATE_BILL', payload: {bill: data}})
+			})
+}
 
