@@ -1,6 +1,5 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons'
 import { StyleSheet, Text, View, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
@@ -43,15 +42,15 @@ class AppNavigator extends React.Component {
     
     <Stack.Screen name="Home" component={Home}/>
    
-    <Stack.Screen name="Bill Details" component={BillDetails}  />
+    <Stack.Screen name="Bill Details" component={BillDetails}   />
     
   </Stack.Navigator>
   
   createTabsNav = () =>   
-  <Tab.Navigator >
+  <Tab.Navigator style={MyTheme}>
     <Tab.Screen name="Home" children={this.createHomeStack} options={{tabBarIcon: 'home-account'}}/> 
       
-    <Tab.Screen name="Add Bill" options={{tabBarIcon: 'plus'}}>
+    <Tab.Screen name="Add Bill" options={{tabBarIcon: 'plus', }} >
       {props => <AddBill {...props}  />}
       </Tab.Screen>
     <Tab.Screen name="Pay Bills" children={this.createPayBillStack} options={{tabBarIcon: 'credit-card'}} />
@@ -62,7 +61,7 @@ class AppNavigator extends React.Component {
     // console.log(this.state)
     return (
 
-    <NavigationContainer  >
+    <NavigationContainer theme={MyTheme} >
       <Drawer.Navigator initialRouteName=" " drawerStyle={{
         backgroundColor: '#c6cbef',
         width: 180,
@@ -109,13 +108,14 @@ const styles = StyleSheet.create({
 const MyTheme = {
   dark: false,
   colors: {
-    primary: 'rgb(255, 45, 85)',
-    background: 'rgb(242, 242, 242)',
+    // primary: 'rgb(164, 80, 139)',
+    background: 'rgb(234, 219, 255)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(50, 50, 50)',
     border: 'rgb(199, 199, 204)',
     position: 'center',
     fontSize: 100,
     color: '#1273de',
+    header:'rgb(200, 204, 146)'
   },
 }; 

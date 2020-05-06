@@ -65,9 +65,9 @@ class BillDetails extends React.Component {
 					{bill_contributors.map((contributor) => (
 						<View key={contributor.user_id} style={styles.container}>
 							<Text>{contributor.name}</Text>
-							<Text>Amount Owed: {contributor.contributed_amount}</Text>
-							<Button onPress={this.showModal}>
-								{contributor.paid ? "PAID" : "SETTLE BILL"}
+							<Text>Amount Owed: ${contributor.contributed_amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</Text>
+							<Button onPress={null}>
+								<Text>Status: {contributor.paid ? "PAID" : "UNPAID" }</Text>
 							</Button>
 						</View>
 
@@ -87,17 +87,28 @@ export default BillDetails;
 
 const styles = StyleSheet.create({
 	container: {
-		// flex: 1,
-		justifyContent: "center",
-		borderRadius: 10,
-		marginTop: 180,
-		marginBottom: 180,
-		fontSize: 20,
-		borderRadius: 10,
-		borderWidth: 1,
-		height: 170,
-		alignItems: "center",
-		backgroundColor: "lightpink",
+	// flex: 1,
+	justifyContent: "center",
+	// borderRadius: 10,
+	marginTop: 180,
+	marginBottom: 180,
+	// fontSize: 20,
+	borderRadius: 10,
+	// borderWidth: 1,
+	height: 170,
+	alignItems: "center",
+	// backgroundColor: "lightpink",
+	backgroundColor: '#fff',
+	marginBottom: 20,
+	marginLeft: '2%',
+	width: '96%',
+	shadowColor: 'black',
+	shadowOpacity: 1,
+	shadowOffset:{
+		width: 3,
+		height:3
+
+	},
   },
   inputStyle: {
 		height: 40,

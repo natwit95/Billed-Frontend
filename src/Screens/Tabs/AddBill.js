@@ -19,7 +19,9 @@ class AddBill extends React.Component {
 	}
 
 	handleDescription = (input) => {
-		this.setState({ description: input });
+		
+			this.setState({ description: input });
+		
 	};
 
 	handleCurrency = (input) => {
@@ -72,6 +74,8 @@ class AddBill extends React.Component {
 	}
 	handlePost = () => {
 		// console.log("this is working")
+		const {description, currency, date } = this.state
+		if(description.length && currency.length && date.length > 0){
     
 		const data = {
       description: this.state.description,
@@ -86,7 +90,9 @@ class AddBill extends React.Component {
 	  this.clearState()
 	  this.props.navigation.navigate("Home")
       
-	
+	}else{
+		alert("Please make sure all inputs are filled before submitting a bill")
+	}
 		
 	}
 
@@ -100,10 +106,11 @@ class AddBill extends React.Component {
 
 		// let newFollowers = this.handleSuggestions() ///use this when you have a follow friends feature
 		// const followers = this.props.currentUser.followings.map(follower=> follower.name)
+		console.log(this.state.splitWith)
 		return (
       
 			<View style={styles.center}>
-				<Text style={styles.title}>Add Bill </Text>
+				
 				<View style={styles.autocompleteContainer} >
 				<AutoTags 
 					suggestions={this.props.currentUser.followings}
@@ -143,7 +150,7 @@ class AddBill extends React.Component {
 					value={this.state.date}
 					onChangeText={this.handleDate}
 				/>
-        <Button title="Submit" type="solid" onPress={this.handlePost} />
+        <TouchableOpacity style={styles.button} type="solid" onPress={this.handlePost}><Text style={styles.buttonText}>Submit</Text></TouchableOpacity>
 			</View>
 		);
 	}
@@ -201,5 +208,18 @@ const styles = StyleSheet.create({
 	
 	// backgroundColor: "white",
 		
-	}
+	},
+	button: {
+		borderWidth: 1,
+		borderColor: '#007BFF',
+		backgroundColor: '#007BFF',
+		padding: 4,
+		margin: 5,
+		borderRadius: 10
+	  },
+	 buttonText: {
+		color: '#FFFFFF',
+		fontSize: 20,
+		textAlign: 'center'
+	  }
 });
