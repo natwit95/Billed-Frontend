@@ -70,12 +70,12 @@ class SettleBill extends React.Component {
 		return (
 			<View style={styles.center}>
 				<View >
-                <Text >Amount Due:<Text style={{color:"green"}}> ${this.state.editContribution.contributed_amount}.00</Text></Text>
-					<Text>How much would you like to pay today?</Text>
+                <Text style={{ fontSize: 25, alignSelf: "center", marginBottom:10}}>Amount Due:<Text style={{color:"red", fontSize: 25}}> ${this.state.editContribution.contributed_amount}.00</Text></Text>
+					<Text style={{ fontSize: 15}}>How much would you like to pay today?</Text>
 
 				</View>
 				<TextInput
-					// placeholder= "$0.00"
+					placeholder= "$0.00"
 					// style={styles.inputStyle}
 					// type={"number"}
 					// options={{
@@ -142,6 +142,20 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
+		backgroundColor: "rgb(216, 187, 255)",
+		// width:300,
+		// alignContent: "center",
+		margin:57,
+		marginTop: 150,
+		marginBottom:150,
+		borderRadius:30,
+		borderColor:"black",
+		shadowColor: "black",
+		shadowOpacity: 1,
+		shadowOffset: {
+			width: 4,
+			height: 4,
+		},
 	},
 	button: {
 		borderWidth: 1,

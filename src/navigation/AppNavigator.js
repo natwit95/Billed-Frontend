@@ -48,7 +48,7 @@ class AppNavigator extends React.Component {
   
   createTabsNav = () =>   
   <Tab.Navigator style={MyTheme}>
-    <Tab.Screen name="Home" children={this.createHomeStack} options={{tabBarIcon: 'home-account'}}/> 
+    <Tab.Screen name="Home" children={this.createHomeStack} options={{tabBarIcon: 'home-account' }}/> 
       
     <Tab.Screen name="Add Bill" options={{tabBarIcon: 'plus', }} >
       {props => <AddBill {...props}  />}
@@ -64,7 +64,7 @@ class AppNavigator extends React.Component {
     <NavigationContainer theme={MyTheme} >
       <Drawer.Navigator initialRouteName=" " drawerStyle={{
         backgroundColor: '#c6cbef',
-        width: 180,
+        width: 200,
         
       }}>
         <Drawer.Screen name=" " component={this.createTabsNav} options={{ drawerIcon: props => <Image
@@ -110,12 +110,14 @@ const MyTheme = {
   colors: {
     // primary: 'rgb(164, 80, 139)',
     background: 'rgb(234, 219, 255)',
-    card: 'rgb(255, 255, 255)',
+    // card: 'rgb(255, 255, 255)',
     text: 'rgb(50, 50, 50)',
-    border: 'rgb(199, 199, 204)',
+    border: 'rgb(255, 255, 255)',
     position: 'center',
-    fontSize: 100,
+    // fontSize: 400,
     color: '#1273de',
-    header:'rgb(200, 204, 146)'
+    header:'rgb(200, 204, 146)',
+   
+    
   },
 }; 

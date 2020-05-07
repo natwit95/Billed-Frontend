@@ -1,24 +1,12 @@
 import React from "react";
 import { View, Text, Button, StyleSheet, ScrollView } from "react-native";
-
 import { connect } from "react-redux";
 import Swiper from "react-native-web-swiper";
 import { TextInput } from "react-native-paper";
 
 class AllBills extends React.Component {
 	renderContributions = () => {
-		// let bills = this.props.bills.map((bill) => bill);
-		// const contributors = this.props.bills.map((bill) =>
-		// 	bill.bill_contributors
-		// 	.filter(
-		// 		(contributor) =>
-		// 			contributor.user_id === this.props.currUser.id &&
-		// 			contributor.contributed_amount > 0
-		// 	)
-		// );
-		// let currUserContributions = [].concat.apply([], contributors);
-
-		// return currUserContributions;
+	
 		return this.props.contributors.filter(
 			(contributor) =>
 				contributor.user_id === this.props.currUser.id &&
@@ -35,51 +23,39 @@ class AllBills extends React.Component {
 	};
 
 	render() {
-		// // console.log("EDIT-CONTRIBUTION:::::::::::",this.props.contributors)
-		// let myContributions = this.props.contributors.filter(
-		// 				(contributor) =>
-		// 					contributor.user_id === this.props.currUser.id
-		// 					&&
-		// 					contributor.contributed_amount > 0
-		// 			)
-
 		return (
-			// this.handleEdit(this.props.route.params.bill_id),
-			// <Swiper>
 			<ScrollView >
 				<View style={styles.center}>
 					<Text style={styles.headerText}>
-						Total Amount Owed: ${this.totalAmountOwed()}
+						Your contribution amount due: ${this.totalAmountOwed()}
 					</Text>
 				</View>
 				{this.renderContributions().map((contributor) => (
-					<View key={contributor.id} style={styles.container}>
-						<View style={styles.header}>
-							<Text style={styles.descriptionText}>
-								{contributor.description}
-							</Text>
-						</View>
-						<View style={styles.row}>
-							<Text style={styles.description}> Remaining Balance Due:</Text>
-							<Text style={styles.amount}>
-								$
-								{contributor.contributed_amount
-									.toFixed(2)
-									.replace(/\d(?=(\d{3})+\.)/g, "$&,")}
-							</Text>
-						</View>
-
-						<Button
-							onPress={() =>
-								this.props.navigation.navigate("Settle Bill", {
-									contributor: contributor,
-								})
-							}
-							title={contributor.paid ? "PAID" : "SETTLE BILL"}
-						/>
+				<View key={contributor.id} style={styles.container}>
+					<View style={styles.header}>
+						<Text style={styles.descriptionText}>
+							{contributor.description}
+						</Text>
+					</View>
+					<View style={styles.row}>
+						<Text style={styles.description}> Remaining Balance Due:</Text>
+						<Text style={styles.amount}>
+							$
+							{contributor.contributed_amount
+							.toFixed(2)
+							.replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+						</Text>
+					</View>
+					<Button
+						onPress={() =>
+							this.props.navigation.navigate("Settle Bill", {
+								contributor: contributor
+							})
+						}
+						title={contributor.paid ? "PAID" : "SETTLE BILL"}
+					/>
 					</View>
 				))}
-				{/* // </Swiper> */}
 			</ScrollView>
 		);
 	}
@@ -129,28 +105,32 @@ const styles = StyleSheet.create({
 		shadowColor: "black",
 		shadowOpacity: 1,
 		shadowOffset: {
-			width: 3,
-			height: 3,
+			width: 4,
+			height: 4,
 		},
+		
 	},
 	headerText: {
 		marginTop: 2,
 		color: "black",
-		fontSize: 20,
+		fontSize: 25,
 		textAlign: "center",
 		backgroundColor: "white",
 		width: 350,
+		
+		
 	},
 	descriptionText: {
 		color: "#FFFFFF",
-		fontSize: 20,
+		fontSize: 25,
 		textAlign: "center",
-		color: "white",
+		color: "black",
 		fontWeight: "bold",
+		
 	},
 	header: {
 		//   flex:1,
-		backgroundColor: "rgb(95, 52, 211)",
+		backgroundColor: "rgb(216, 187, 255)",
 		// marginTop: 20,
 		width: "100%",
 		height: "25%",
@@ -161,14 +141,16 @@ const styles = StyleSheet.create({
 		borderTopColor: "black",
 		fontFamily: "Avenir",
 		justifyContent: "center",
+		
 	},
 	description: {
-		fontSize: 15,
+		fontSize: 20,
 		lineHeight: 40,
 		width: 250,
 		marginRight: 10,
-		fontWeight: "bold",
+		// fontWeight: "bold",
 		fontFamily: "Avenir",
+		
 	},
 	amount: {
 		fontSize: 25,

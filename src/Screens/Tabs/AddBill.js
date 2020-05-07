@@ -1,5 +1,5 @@
 import React from "react";
-import {View,Text,TextInput,Button,StyleSheet,Header, TouchableOpacity, Picker} from "react-native";
+import {View,Text,TextInput,Button,StyleSheet,Header, TouchableOpacity, Image} from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import { connect } from 'react-redux'
 // import Autocomplete from 'react-native-autocomplete-input';
@@ -111,8 +111,18 @@ class AddBill extends React.Component {
       
 			<View style={styles.center}>
 				
+				
+				<View style={{flex:.2}}>
+				<Image
+
+						style={{ width: 160, height: 40, marginTop: -107,  opacity: 0.9}}
+						source={require("./add_bill.png")}
+					/>
+				</View>
 				<View style={styles.autocompleteContainer} >
+				
 				<AutoTags 
+				
 					suggestions={this.props.currentUser.followings}
 					tagsSelected={this.state.splitWith}
 					handleAddition={this.handleAddition}
@@ -121,8 +131,11 @@ class AddBill extends React.Component {
 					onCustomTagCreated={this.handleAddition}
 					tagsOrientedBelow={true}
 					
+					
+					
 					 />
 				</View>
+			
 				<TextInput style={styles.inputStyle}
 				 	placeholder="Description..."
 					value={this.state.description} 
@@ -183,26 +196,40 @@ const styles = StyleSheet.create({
 		backgroundColor: "white",
 		padding: 10,
 		// justifyContent: "center",
-		marginTop: 15,
+		marginTop: 10,
 		
   },
 	center: {
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
+		backgroundColor: "rgb(216, 187, 255)",
+		// width:300,
+		// alignContent: "center",
+		margin:57,
+		marginTop: 200,
+		marginBottom:150,
+		borderRadius:30,
+		shadowColor: "black",
+		shadowOpacity: 1,
+		shadowOffset: {
+			width: 4,
+			height: 4,
+		},
 	},
 	title: {
 		fontSize: 20,
 		marginBottom: 10,
 	},
 	autocompleteContainer: {
-		flex: 1,
-    left: 38,
-    position: "absolute",
-    // right: 30,
-    top: 60,
+		// flex: 1,
+    // left: 55,
+	position: "absolute",
+    right: 0,
+    top: 20,
 	zIndex: 1,
-	marginTop: 15,
+	marginTop: 20,
+	// borderColor:"black"
         
         
 	
