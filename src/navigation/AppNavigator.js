@@ -67,7 +67,7 @@ class AppNavigator extends React.Component {
         width: 200,
         
       }}>
-        <Drawer.Screen name=" " component={this.createTabsNav} options={{ drawerIcon: props => <Image
+        <Drawer.Screen name=" " component={this.createTabsNav} options={{ drawerIcon: props =>  <Image
           style={{ width: 110, height: 35 }}
           source={require('../assets/billed.png')}
           /> }}  
@@ -109,7 +109,9 @@ const MyTheme = {
   dark: false,
   colors: {
     // primary: 'rgb(164, 80, 139)',
+    // background: 'rgb(216, 187, 255)',
     background: 'rgb(234, 219, 255)',
+    
     // card: 'rgb(255, 255, 255)',
     text: 'rgb(50, 50, 50)',
     border: 'rgb(255, 255, 255)',
@@ -117,7 +119,7 @@ const MyTheme = {
     // fontSize: 400,
     color: '#1273de',
     header:'rgb(200, 204, 146)',
-   
+    // backgroundColor: "rgb(216, 187, 255)",
     
   },
 }; 

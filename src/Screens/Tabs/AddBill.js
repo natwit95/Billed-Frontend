@@ -115,7 +115,7 @@ class AddBill extends React.Component {
 				<View style={{flex:.2}}>
 				<Image
 
-						style={{ width: 160, height: 40, marginTop: -107,  opacity: 0.9}}
+						style={{ width: 160, height: 40, marginTop: -115,  opacity: 0.8}}
 						source={require("./add_bill.png")}
 					/>
 				</View>
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
 		// width:300,
 		// alignContent: "center",
 		margin:57,
-		marginTop: 200,
+		marginTop: 170,
 		marginBottom:150,
 		borderRadius:30,
 		shadowColor: "black",
@@ -238,10 +238,10 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		borderWidth: 1,
-		borderColor: '#007BFF',
-		backgroundColor: '#007BFF',
+		borderColor: 'purple',
+		backgroundColor: 'purple',
 		padding: 4,
-		margin: 5,
+		margin: 8,
 		borderRadius: 10
 	  },
 	 buttonText: {

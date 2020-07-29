@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
 			height: 4,
 		},
 		
+		
 	},
 	headerText: {
 		marginTop: 2,

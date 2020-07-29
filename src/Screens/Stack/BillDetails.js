@@ -62,12 +62,19 @@ class BillDetails extends React.Component {
 					</Modal>
 				</View> */}
 				<Swiper>
+					
 					{bill_contributors.map((contributor) => (
+					
 						<View key={contributor.user_id} style={styles.container}>
-							<Text>{contributor.name}</Text>
-							<Text>Amount Owed: ${contributor.contributed_amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</Text>
-							<Button onPress={null}>
-								<Text>Status: {contributor.paid ? "PAID" : "UNPAID" }</Text>
+							<View style={styles.header}>
+							<Text style={styles.descriptionText}>{contributor.name}</Text>
+							</View>
+							<View style={{marginTop: 40}}>
+								
+							<Text style={{fontSize: 20}}>Amount Owed for {contributor.description}: <Text style={{color:"red"}}>${contributor.contributed_amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</Text> </Text>
+							</View>
+							<Button style={{marginTop:20}} onPress={null}>
+								<Text style={{fontSize: 20}}>Status: {contributor.paid ? "PAID" : "UNPAID" }</Text>
 							</Button>
 						</View>
 
@@ -127,5 +134,28 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
+	},
+	descriptionText: {
+		color: "#FFFFFF",
+		fontSize: 25,
+		textAlign: "center",
+		color: "black",
+		fontWeight: "bold",
+		
+	},
+	header: {
+		//   flex:1,
+		backgroundColor: "rgb(216, 187, 255)",
+		// marginTop: 20,
+		width: "100%",
+		height: "25%",
+		// alignItems: "center",
+		borderRadius: 10,
+		borderBottomEndRadius: 0,
+		borderBottomStartRadius: 0,
+		borderTopColor: "black",
+		fontFamily: "Avenir",
+		justifyContent: "center",
+		
 	},
 });

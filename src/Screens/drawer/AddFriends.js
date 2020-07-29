@@ -44,7 +44,7 @@ class AddFriends extends React.Component {
 					+FOLLOW
 				</Text>
 			</TouchableOpacity>: 
-			<TouchableOpacity style={styles.unfollowButton} onPress={() => null}>
+			<TouchableOpacity style={styles.unfollowButton} onPress={() => this.handleClick(item.id)}>
 				
 				<Text style={{ color: "black", fontWeight: "normal" , color: "purple" }}>
 					UNFOLLOW
@@ -52,6 +52,17 @@ class AddFriends extends React.Component {
 			</TouchableOpacity> }
 		</View>
 	);
+
+
+	handleClick = (id) => {
+		fetch(`http://localhost:3000/follows/${id}`, {
+		  method: "DELETE"
+		})
+		// .then(res=>res.json())
+		// .then(status => console.log(status))
+		// this.props.updateFetch()
+	  }
+
 
 	handleSearch = (input) => {
 		// console.log(this.state.searchTerm)
