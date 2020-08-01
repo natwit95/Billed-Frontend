@@ -167,9 +167,6 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 15,
 		flexDirection: "row",
 		justifyContent: "space-between",
-		// borderBottomWidth: 1,
-		// borderBottomColor: "white",
-		// borderRadius:20,
-		// backgroundColor:'#c6cbef'
+
 	},
 });

@@ -190,11 +190,4 @@ const styles = StyleSheet.create({
 	  },
 });
 
-// componentDidMount(){
-//     fetch("http://localhost:3000/bills")
-//     .then(resp=>resp.json())
-//     .then(bills => {
-//         console.log(bills)
-//         // console.log("in action",bills)
-//     })
-// }
+
