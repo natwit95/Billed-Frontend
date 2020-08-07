@@ -46,4 +46,3 @@ const mdp = (dispatch) => {
 }
 
 export default connect(mapStateToProps,mdp)(App);
- 

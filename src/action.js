@@ -20,7 +20,7 @@ export const fetchBills = () => dispatch => {
 export const fetchUsers = () => dispatch => {
       fetch("http://localhost:3000/users")
         .then(resp=>resp.json())
-        .then(users=> {
+        .then(users=> {F
             dispatch(getUsers(users))
             // console.log(users)
         })

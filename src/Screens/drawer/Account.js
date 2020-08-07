@@ -12,3 +12,6 @@ const Account = () =>
 
 
 export default Account;
+
+
+// ADD ACCOUNT FOR PASSWORD SWITCH AND ETC 
