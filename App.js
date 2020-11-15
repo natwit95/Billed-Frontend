@@ -12,11 +12,9 @@ class App extends React.Component {
     this.props.allContributors()
     this.props.currentUser()
     this.props.allFollowers()
-    // console.log("Iam in APPP",  this.props.bills)
 }
 
 	render() {
-    // console.log("Iam in APPP", this.props)
     return(
     
       <AppNavigator />
@@ -26,7 +24,6 @@ class App extends React.Component {
 
 
 function mapStateToProps(state){
-  // console.log("MSP",state)
   return {
     
      bills: state.bills,

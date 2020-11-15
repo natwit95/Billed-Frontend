@@ -3,9 +3,7 @@ export function getUsers(users){
     return {type: "GET_USERS", payload: {users}}
 }
 
-// export function currentUser(){
-//     return{type: "CURRENT_USER", payload: "nuser"}
-// }
+
 export const fetchBills = () => dispatch => {
       fetch("http://localhost:3000/bills")
             .then(resp=>resp.json())
@@ -22,7 +20,6 @@ export const fetchUsers = () => dispatch => {
         .then(resp=>resp.json())
         .then(users=> {F
             dispatch(getUsers(users))
-            // console.log(users)
         })
 }
 
@@ -44,7 +41,6 @@ export const fetchContributors = () => dispatch => {
     fetch("http://localhost:3000/bill_contributors")
           .then(resp=>resp.json())
           .then(contributors => {
-            //   console.log("in ACTION JS.........................", contributors)
               dispatch({type: "GET_CONTRIBUTORS", payload: {contributors}})
             
           })
@@ -52,7 +48,6 @@ export const fetchContributors = () => dispatch => {
 }
 
 export const editContributors = (contributor_obj) => dispatch => {
-    // console.log("the OBJECT TO EDIT",contributor_obj)
     fetch(`http://localhost:3000/bill_contributors/${contributor_obj.id}`, {
               method: 'PATCH', // or 'PUT'
               headers: {
@@ -63,13 +58,10 @@ export const editContributors = (contributor_obj) => dispatch => {
             .then(response => response.json())
             .then(data => {
                 console.log("in ACTION JSS",data) 
-                // console.log("the OBJECT TO EDIT",contributor_obj)
                 dispatch({ type: 'EDIT_CONTRIBUTOR', payload: { bill_contributor: data } })
 
             })
-            // .catch((error) => {
-            //   console.error('Error:', error);
-            // });
+
 }
 
 
@@ -78,7 +70,7 @@ export const getCurrentUser = () => dispatch => {
         .then(resp=>resp.json())
         .then(user=> {
           dispatch({type: 'CURRENT_USER', payload: {user}})
-            // console.log(user)
+
         })
 }
 
@@ -86,9 +78,8 @@ export const getFollowers = () => dispatch => {
   fetch("http://localhost:3000/follows")
         .then(resp=>resp.json())
         .then(follows=> {
-          // console.log(follows)
           dispatch({type: 'GET_FOLLOWS', payload: {follows}})
-            // console.log(user)
+           
         })
 
 }
@@ -105,7 +96,4 @@ export const followUser = (follow_obj) => dispatch => {
   .then(data => {
     dispatch({ type: 'FOLLOW_USER', payload: {follow: data}})
   })
-  // .catch((error) => {
-  //   console.error('Error:', error);
-  // });
 }

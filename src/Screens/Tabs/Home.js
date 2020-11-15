@@ -8,33 +8,10 @@ import {
 	ListItem,
 	Image,
 } from "react-native";
-// import { styles } from '../../styles/styles.js'
 import { connect } from "react-redux";
-// import { fetchBills, fetchUsers, currentUser } from '../../action'
+
 
 class Home extends React.Component {
-	// getContributors=() => (
-	//     this.props.bills.map(bill=> {  <FlatList
-	//         data={bill}
-
-	//         renderItem={(item)=>
-	//        <TouchableOpacity onPress={()=> this.props.navigation.navigate("Bill Details")}>
-	//         <Text style={styles.item}>{item.des}</Text>
-	//        </TouchableOpacity>
-	//     }
-	//     />})
-
-	// )
-
-	// Response = ({ description }) => {
-	// 	return (
-	// 		<View style={styles.item}>
-	// 			<Text h4 style={styles.title}>
-	// 				{description}
-	// 			</Text>
-	// 		</View>
-	// 	);
-	// };
 
 	totalOwed = () => {
 		const amounts = this.props.contributors
@@ -88,13 +65,7 @@ function mapStateToProps(state) {
 	};
 }
 
-// const mdp = (dispatch) => {
-//     return {
-//         allBills: () => dispatch(fetchBills()),
-//         allUsers: () => dispatch(fetchUsers()),
-//         // currentUser: () => dispatch(currentUser())
-//     }
-// }
+
 
 export default connect(mapStateToProps)(Home);
 
@@ -154,12 +125,3 @@ const styles = StyleSheet.create({
 		
 	},
 });
-
-// componentDidMount(){
-//     fetch("http://localhost:3000/bills")
-//     .then(resp=>resp.json())
-//     .then(bills => {
-//         console.log(bills)
-//         // console.log("in action",bills)
-//     })
-// }

@@ -191,4 +191,4 @@ const styles = StyleSheet.create({
 });
 
 
-// add the unfollow feature here
+//  add the unfollow feature here
