@@ -8,7 +8,6 @@ export const fetchBills = () => dispatch => {
       fetch("http://localhost:3000/bills")
             .then(resp=>resp.json())
             .then(bills => {
-                // console.log("in ACTION JS.........................", bills)
                 dispatch({type: "GET_BILLS", payload: {bills}})
                 
             })

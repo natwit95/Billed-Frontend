@@ -86,7 +86,6 @@ class SettleBill extends React.Component {
 					style={styles.inputStyle}
 					value={this.state.editContribution.contributed_amount}
 					onChangeText={(input)=>this.handleAmount(input)}
-					//   {console.log()}
 				/>
 				<TouchableOpacity onPress={this.handlePayment} style={styles.button}><Text style={styles.buttonText}>Make Payment</Text></TouchableOpacity>
 				<TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.button}><Text style={styles.buttonText}>Cancel</Text></TouchableOpacity>
@@ -97,7 +96,6 @@ class SettleBill extends React.Component {
 }
 
 function mapStateToProps(state) {
-	// {console.log("I am in ALL BILLS", state.bills)
 	return {
 		bills: state.bills,
 		currUser: state.currUser,
@@ -134,7 +132,6 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 		backgroundColor: "white",
 		padding: 10,
-		// justifyContent: "center",
 		marginTop: 15,
 		alignContent: "center",
 	},
@@ -143,8 +140,6 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		backgroundColor: "rgb(216, 187, 255)",
-		// width:300,
-		// alignContent: "center",
 		margin:57,
 		marginTop: 150,
 		marginBottom:150,

@@ -127,7 +127,6 @@ class AddFriends extends React.Component {
 	}
 }
 function mapStateToProps(state) {
-	// console.log("I am in add bill:", state.users)
 	return {
 		currentUser: state.currUser,
 		bills: state.bills,
@@ -159,7 +158,6 @@ const styles = StyleSheet.create({
 		color: "black",
 	},
 	row: {
-		// flex: 1,
 		marginTop: 5,
 		marginRight: 5,
 		marginLeft: 5,
@@ -177,7 +175,6 @@ const styles = StyleSheet.create({
 		borderColor: 'purple',
 		backgroundColor: 'purple',
 		padding: 1,
-		// margin: 5,
 		borderRadius: 10
 	  },
 	  unfollowButton: {
@@ -185,7 +182,6 @@ const styles = StyleSheet.create({
 		borderColor: 'white',
 		backgroundColor: 'white',
 		padding: 1,
-		// margin: 5,
 		borderRadius: 10
 	  },
 });

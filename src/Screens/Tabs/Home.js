@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
 	},
 	item: {
 		marginTop: 10,
-		// marginBottom:10,
 		paddingBottom: 40,
 		backgroundColor: "pink",
 		fontSize: 20,

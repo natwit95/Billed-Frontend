@@ -7,13 +7,11 @@ import { connect } from 'react-redux'
 const Login = (props) =>
 
  <View style={styles.center}>
-   {/* {console.log("I am in ALL BILLS", props.bills)} */}
     <Text style={styles.title}>Login</Text>
     
   </View>
 
 function mapStateToProps(state){
-  // {console.log("I am in ALL BILLS", state.bills)}
 
   return {
      bills: state.bills,

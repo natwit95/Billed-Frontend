@@ -14,7 +14,6 @@ import AddFriends from '../Screens/drawer/AddFriends';
 import Login from '../Screens/Stack/Login';
 import Signup from '../Screens/Stack/Signup';
 import SettleBill from '../Screens/Stack/SettleBill';
-// import Form from '../Screens/Stack/Form';
 
 
 
@@ -58,7 +57,6 @@ class AppNavigator extends React.Component {
   
 
   render() {
-    // console.log(this.state)
     return (
 
     <NavigationContainer theme={MyTheme} >
@@ -112,14 +110,11 @@ const MyTheme = {
     // background: 'rgb(216, 187, 255)',
     background: 'rgb(234, 219, 255)',
     
-    // card: 'rgb(255, 255, 255)',
     text: 'rgb(50, 50, 50)',
     border: 'rgb(255, 255, 255)',
     position: 'center',
-    // fontSize: 400,
     color: '#1273de',
     header:'rgb(200, 204, 146)',
-    // backgroundColor: "rgb(216, 187, 255)",
     
   },
 }; 

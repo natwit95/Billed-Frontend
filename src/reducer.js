@@ -18,7 +18,6 @@ export const reducer = (prevState = initialState, action) => {
         case 'GET_USERS':
             return {...prevState, users: action.payload.users}
         case "EDIT_CONTRIBUTOR":
-            // console.log("in reducer", action.payload.bill_contributor)
             let editedContributors = prevState.contributors.map((contributor)=>{
                 if(contributor.id === action.payload.bill_contributor.id){
                     return action.payload.bill_contributor

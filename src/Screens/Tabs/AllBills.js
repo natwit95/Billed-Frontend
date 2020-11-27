@@ -73,17 +73,9 @@ export default connect(mapStateToProps)(AllBills);
 
 const styles = StyleSheet.create({
 	container: {
-		// flex: 1,
-		// justifyContent: "center",
-		// borderRadius: 10,
-		// marginTop: 180,
-		// marginBottom: 180,
-		// fontSize: 20,
 		borderRadius: 10,
-		// borderWidth: 1,
 		height: 170,
 		alignItems: "center",
-		// backgroundColor: "lightpink",
 		backgroundColor: "white",
 		marginBottom: 10,
 		marginLeft: "2%",
@@ -130,12 +122,9 @@ const styles = StyleSheet.create({
 		
 	},
 	header: {
-		//   flex:1,
 		backgroundColor: "rgb(216, 187, 255)",
-		// marginTop: 20,
 		width: "100%",
 		height: "25%",
-		// alignItems: "center",
 		borderRadius: 10,
 		borderBottomEndRadius: 0,
 		borderBottomStartRadius: 0,
@@ -149,7 +138,6 @@ const styles = StyleSheet.create({
 		lineHeight: 40,
 		width: 250,
 		marginRight: 10,
-		// fontWeight: "bold",
 		fontFamily: "Avenir",
 		
 	},

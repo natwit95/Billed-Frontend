@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import { connect } from "react-redux";
-// import Autocomplete from 'react-native-autocomplete-input';
 import AutoTags from "react-native-tag-autocomplete";
 import { postBills } from "../../action";
 
