@@ -8,14 +8,14 @@ Mobile App	 built to bring ease in tracking and splitting bills between users, m
 
 User Story📝
 
-☞ A user will be able create a bill + split the bill with friends
-☞ A user will be able to see the total amount owed for all of their bills
-☞ A user will be able to see the total amount owed for all of their bills
-☞ A user will be able to see amounts owed to them with a list of users
+☞ A user will be able create a bill + split the bill with friends <br>
+☞ A user will be able to see the total amount owed for all of their bills <br>
+☞ A user will be able to see the total amount owed for all of their bills <br>
+☞ A user will be able to see amounts owed to them with a list of users <br>
 ☞ A user will be able to click on each user owes tab and see details as well as mark as
-paid
-☞ A user will be able to see their bills and pay them
-☞ A user will be able to update or delete their account
+paid <br>
+☞ A user will be able to see their bills and pay them <br>
+☞ A user will be able to update or delete their account <br>
 
 
 
